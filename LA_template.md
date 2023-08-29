@@ -30,7 +30,7 @@ Was ich jeddoch geschafft habe ist die Grundlage, aus welcher ich dann das Proje
 | Vorbereitung             | Eingabe | Erwartete Ausgabe | Ausgabe |
 | ------------------------ | ------- | ----------------- |---------|
 | Programm in VS gestartet | 0-10    |    2, 3, 5, 7     | 7, 8, 9 |
-|--------------------------|---------|-------------------|---------|
+
 
 ## Arbeitspakete für nächstes mal
 
