@@ -10,7 +10,7 @@ Ich möchte mit c# eine kleine übungs applikation entwickeln, welche Prim-Zahle
 
 - [x] Grundsätzliche Mathematik
 - [x] Umsetzung der Mathe zu Code
-- [ ] Automatisierung um von 0 zu Y alle Zahlen zu Prüfen
+- [x] Automatisierung um von 0 zu Y alle Zahlen zu Prüfen
 - [ ] Optimisierung mit evtl. Threading
 
 
@@ -34,10 +34,17 @@ Was ich jeddoch geschafft habe ist die Grundlage, aus welcher ich dann das Proje
 
 ## Arbeitspakete für nächstes mal
 
-- [ ] Bugfixes
-- [ ] Automatisierung
-- [ ] Optimisierung
-- [ ] Welcome Screen (Ascii art Logo)
+- [x] Bugfixes
+- [x] Automatisierung
+- [x] Optimisierung
+- [x] Welcome Screen (Ascii art Logo)
+
+# Dienstag 05/09/2023
+
+## Zusammenfassung
+Ich habe den alten Ansatz meines Programms aufgegeben und nochmals von vorne begonnen. Ich habe teilweise Code-Snippets aus dem alten verwenden können, aber habe ein anderes System benutzt. Die Mathematik, welche ich verwenden um die Primzahlen zu finden nennt sich "sieve of Eratosthenes". 
+
+Das Programm ist im grunde genommen fertig.
 
 
 
