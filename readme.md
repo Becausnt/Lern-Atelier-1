@@ -1,6 +1,12 @@
-# Grob-Planung Mittwoch 22/08/2023
+# Repo Info
 
-Vincent
+- "Primes.zip" sind die Primzahlen bis zu 100'000'000.
+- "Program.cs" ist das C# Computerprogramm
+- "PrimesSoE", SoE steht für "Sieve of Eratosthenes".
+
+
+
+# Grob-Planung Mittwoch 22/08/2023
 
 ## Leit-Satz
 
