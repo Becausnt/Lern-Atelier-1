@@ -136,13 +136,14 @@ namespace PrimesSoE
 
             if (writeToFile)
             {
-                Console.WriteLine("Please wait, generating...");
+                
                 string primeNumbersString = "";
+                /*
                 foreach (int i in primeNumbers)
                 {
                     primeNumbersString = primeNumbersString + i + "\n";
                 }
-
+                */
 
                 while (true)
                 {
@@ -153,14 +154,23 @@ namespace PrimesSoE
                         break;
                     }
                 }
+                Console.WriteLine("Please wait, generating..."); 
                 if (File.Exists(filePath))
-                { 
-                    System.IO.File.WriteAllText(filePath, primeNumbersString);
+                {
+                    
+                    for (int i = 0; i < primeNumbers.Count(); i++)
+                    {
+                        System.IO.File.AppendAllText(filePath, Convert.ToString(primeNumbers[i]) + "\n");
+                    }
+                    
                 }
                 else
                 {
                     Console.WriteLine("The file was not found, Creating...");
-                    System.IO.File.WriteAllText(filePath, primeNumbersString);
+                    for (int i = 0; i < primeNumbers.Count(); i++)
+                    {
+                        System.IO.File.AppendAllText(filePath, Convert.ToString(primeNumbers[i]) + "\n");
+                    }
                 }
             }
             Console.WriteLine("Finished!");
