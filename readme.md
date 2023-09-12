@@ -17,7 +17,7 @@ Ich möchte mit c# eine kleine übungs applikation entwickeln, welche Prim-Zahle
 - [x] Grundsätzliche Mathematik
 - [x] Umsetzung der Mathe zu Code
 - [x] Automatisierung um von 0 zu Y alle Zahlen zu Prüfen
-- [ ] Optimisierung mit evtl. Threading
+- [x] Optimisierung mit evtl. Threading
 
 
 
