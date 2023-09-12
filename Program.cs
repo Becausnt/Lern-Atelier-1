@@ -46,6 +46,7 @@ namespace PrimesSoE
 
             string filePath = "";
             int number;
+            bool writeToConsole;
             while (true) 
             {
                 Console.WriteLine("Calculate prime numbers up to:");
@@ -59,6 +60,29 @@ namespace PrimesSoE
                     Console.WriteLine("Please enter a valid number larger than 2.");
                 }
             }
+            Console.WriteLine("It is recommended to not print the numbers to the console when calculating large amounts of numbers(circa from 1'000'000), as the writing to the Console takes a LOT longer then the calculation.\n(You will be asked if you want to write the numbers to a file after the calculation)\n\n");
+
+            while (true)
+            {
+                Console.WriteLine("Would you like to print your numbers to the Console? [y/N]");
+                
+                string answer = Console.ReadLine().ToLower();
+                if (answer == "y")
+                {
+                    writeToConsole = true;
+                    break;
+                }
+                else if (answer == "n")
+                {
+                    writeToConsole = false;
+                    break;
+                }
+                else
+                {
+                    Console.WriteLine("Please enter a valid answer. ('y' for yes or 'n' for no)");
+                }
+
+            }
             Stopwatch calculationTimer = new Stopwatch();
             Stopwatch consoleWritingTimer = new Stopwatch();
 
@@ -66,18 +90,29 @@ namespace PrimesSoE
             calculationTimer.Start();
             primeNumbers = CalculatePrimes(number);
             calculationTimer.Stop();
-            Console.WriteLine($"The prime numbers up to {number} are:");
-            consoleWritingTimer.Start();
-            foreach (int i in primeNumbers)
+            if (writeToConsole)
             {
-                Console.WriteLine(i);
+                Console.WriteLine($"The prime numbers up to {number} are:");
+            }
+            
+            consoleWritingTimer.Start();
+            if (writeToConsole)
+            {
+                foreach (int i in primeNumbers)
+                {
+                    Console.WriteLine(i);
+                }
             }
             consoleWritingTimer.Stop();
             Console.WriteLine($"\n\nCalculation of {primeNumbers.Count()} prime Numbers(up to {number}) took {calculationTimer.Elapsed}.");
-            Console.WriteLine($"The Console.WriteLine() of {primeNumbers.Count()} prime Numbers took {consoleWritingTimer.Elapsed}.");
             TimeSpan tspanCalc = calculationTimer.Elapsed;
             TimeSpan tspanWrite = consoleWritingTimer.Elapsed;
-            Console.WriteLine($"The Writing took {tspanWrite.TotalSeconds/tspanCalc.TotalSeconds} times longer than the calculation\n\n");
+            if (writeToConsole)
+            {
+                Console.WriteLine($"The Console.WriteLine() of {primeNumbers.Count()} prime Numbers took {consoleWritingTimer.Elapsed}.");
+                Console.WriteLine($"The Writing took {tspanWrite.TotalSeconds / tspanCalc.TotalSeconds} times longer than the calculation\n\n");
+            }
+            
             bool writeToFile = false;
             while (true)
             {
@@ -101,6 +136,7 @@ namespace PrimesSoE
 
             if (writeToFile)
             {
+                Console.WriteLine("Please wait, generating...");
                 string primeNumbersString = "";
                 foreach (int i in primeNumbers)
                 {
