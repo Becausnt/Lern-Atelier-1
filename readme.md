@@ -46,6 +46,15 @@ Ich habe den alten Ansatz meines Programms aufgegeben und nochmals von vorne beg
 
 Das Programm ist im grunde genommen fertig.
 
+# Dienstag 12/09/2023
+
+## Zusammenfassung
+Ich habe dem Programm einen Timer hinzugefügt und die Dauer zur Berechnung und die Dauer der Ausgabe in der Kommandozeile gestoppt. Die berechnung geht meistens einige hundert mal schneller als die Ausgabe. (nur wenn genug hoch berechnet wird, ansonsten ist der Unterschied natürlich klein). Ich habe noch vergessen dies das Letzte mal zu erwähnen, man kann das Ergebniss der Berechnung in eine Datei schreiben lassen. Den grössten Teil von Heute habe ich damit verbracht, am Modul 431 zu Arbeiten und ein neues Projekt zu suchen. Ich habe jedoch noch nichts interessantes gefunden. Ich hatte mal eine tolle Idee, aber ich habe es wieder vergessen.
+
+## Arbeitspakete fürs nächste mal:
+[] Neues Projekt suchen
+[] Projekt beginnen, Grundlagen erstellen
+
 
 
 
