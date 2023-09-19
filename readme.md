@@ -58,5 +58,16 @@ Das Programm ist im grunde genommen fertig.
 Ich habe dem Programm einen Timer hinzugefügt und die Dauer zur Berechnung und die Dauer der Ausgabe in der Kommandozeile gestoppt. Die berechnung geht meistens einige hundert mal schneller als die Ausgabe. (nur wenn genug hoch berechnet wird, ansonsten ist der Unterschied natürlich klein). Ich habe noch vergessen dies das Letzte mal zu erwähnen, man kann das Ergebniss der Berechnung in eine Datei schreiben lassen. Den grössten Teil von Heute habe ich damit verbracht, am Modul 431 zu Arbeiten und ein neues Projekt zu suchen. Ich habe jedoch noch nichts interessantes gefunden. Ich hatte mal eine tolle Idee, aber ich habe es wieder vergessen.
 
 ## Arbeitspakete fürs nächste mal:
-- [ ] Caesar Verlschlüsselungsprogramm machen
-- [ ] Caesar "cracker" machen.
+- [x] Caesar Verlschlüsselungsprogramm machen
+- [x] Caesar "cracker" machen.
+
+# Dienstag 19/09/2023
+
+## Zusammenfassung
+Ich habe die Caesar-verschlüsselung fertiggestellt, den cracker auch. Ich hatte ein paar Probleme bei der Verschiebung über Z hinaus, aber ich habe es gefunden.
+## Arbeitspakete fürs nächste mal:
+- [ ] Tic Tac Toe beginnnen in c#
+- [ ] Farben in der Konsole
+- [ ] Vlt. Bot
+- [ ] Spielmechaniken von TicTacToe
+      
