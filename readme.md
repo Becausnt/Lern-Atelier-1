@@ -66,8 +66,11 @@ Ich habe dem Programm einen Timer hinzugefügt und die Dauer zur Berechnung und 
 ## Zusammenfassung
 Ich habe die Caesar-verschlüsselung fertiggestellt, den cracker auch. Ich hatte ein paar Probleme bei der Verschiebung über Z hinaus, aber ich habe es gefunden.
 ## Arbeitspakete fürs nächste mal:
-- [ ] Tic Tac Toe beginnnen in c#
+- [x] Tic Tac Toe beginnnen in c#
 - [ ] Farben in der Konsole
 - [ ] Vlt. Bot
-- [ ] Spielmechaniken von TicTacToe
-      
+- [x] Spielmechaniken von TicTacToe
+
+# Dienstag 26/09/2023 (Vor Herbstferien)
+## Reflexion
+Heute habe ich durchgehend an dem TicTacToe Spiel gearbeitet. Ich kann mir vorstellen wie man einen TicTacToe-Bot machen könnte, aber es ist mir zu mühsam, deshalb lasse ich das. Meine Heutigen Meilensteine waren in etwa, als ich es geschafft habe die Platzieren funktion zum laufen zu bringen, die Gewinnerkennung und die Gleichstandserkennung. Anstatt nun einen Bot zu designen würde ich lieber noch ein Graphisches interface erstellen.
