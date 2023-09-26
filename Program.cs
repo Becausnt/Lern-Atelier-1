@@ -1,179 +1,289 @@
-﻿using System.Diagnostics;
-using static System.Formats.Asn1.AsnWriter;
-using System.IO;
-using System.Runtime.CompilerServices;
+﻿using System.ComponentModel;
 
-namespace PrimesSoE
+namespace ConsoleGame
 {
     internal class Program
     {
-        public static List<int> CalculatePrimes(int limit)
+        static int numberofTurns = 0;
+        static char playerTurn = 'X';
+        static char field1 = '1';
+        static char field2 = '2';
+        static char field3 = '3';
+        static char field4 = '4';
+        static char field5 = '5';
+        static char field6 = '6';
+        static char field7 = '7';
+        static char field8 = '8';
+        static char field9 = '9';
+        
+        public static bool TestAndPlaceOnField(string fieldNumber)
         {
-            bool[] isPrime = new bool[limit + 1];
-            isPrime[1] = false;
-            for (int i = 2; i <= limit; i++)
+            switch (fieldNumber)
             {
-                isPrime[i] = true;
-            }
-            for (int i = 2; i * i <= limit; i++)
-            {
-                for (int j = i * i; j <= limit; j += i)
-                {
-                    isPrime[j] = false;
-                }
-            }
+                case "1":
+                    if (field1 != '1')
+                    {
+                        Console.WriteLine("Invalid Input.");
+                        return false;
+                    }
+                    else
+                    {
+                        field1 = playerTurn;
+                        return true;
+                    }
+                case "2":
+                    if (field2 != '2')
+                    {
+                        Console.WriteLine("Invalid Input.");
+                        return false;
+                    }
+                    else
+                    {
+                        field2 = playerTurn;
+                        return true;
+                    }
+                case "3":
+                    if (field3 != '3')
+                    {
+                        Console.WriteLine("Invalid Input.");
+                        return false;
+                    }
+                    else
+                    {
+                        field3 = playerTurn;
+                        return true;
+                    }
+                case "4":
+                    if (field4 != '4')
+                    {
+                        Console.WriteLine("Invalid Input.");
+                        return false;
+                    }
+                    else
+                    {
+                        field4 = playerTurn;
+                        return true;
+                    }
+                case "5":
+                    if (field5 != '5')
+                    {
+                        Console.WriteLine("Invalid Input.");
+                        return false;
+                    }
+                    else
+                    {
+                        field5 = playerTurn;
+                        return true;
+                    }
+                case "6":
+                    if (field6 != '6')
+                    {
+                        Console.WriteLine("Invalid Input.");
+                        return false;
+                    }
+                    else
+                    {
+                        field6 = playerTurn;
+                        return true;
+                    }
+                case "7":
+                    if (field7 != '7')
+                    {
+                        Console.WriteLine("Invalid Input.");
+                        return false;
+                    }
+                    else
+                    {
+                        field7 = playerTurn;
+                        return true;
+                    }
+                case "8":
+                    if (field8 != '8')
+                    {
+                        Console.WriteLine("Invalid Input.");
+                        return false;
+                    }
+                    else
+                    {
+                        field8 = playerTurn;
+                        return true;
+                    }
+                case "9":
+                    if (field9 != '9')
+                    {
+                        Console.WriteLine("Invalid Input.");
+                        return false;
+                    }
+                    else
+                    {
+                        field9 = playerTurn;
+                        return true;
+                    }
 
-            List<int> primeNumbers = new List<int>();
-
-            for (int i = 1; i <= limit; i++)
-            {
-                if (isPrime[i])
-                {
-                    primeNumbers.Add(i);
-                }
-            }
-            return primeNumbers;
-        }   
-
-        static void Main()
-        {
-            Console.WriteLine("______     _                  _   _                 _                              _ _   _       _____       _____ ");
-            Console.WriteLine("| ___ \\   (_)                | \\ | |               | |                            (_) | | |     /  ___|     |  ___|");
-            Console.WriteLine("| |_/ / __ _ _ __ ___   ___  |  \\| |_   _ _ __ ___ | |__   ___ _ __ ___  __      ___| |_| |__   \\ `--.  ___ | |__  ");
-            Console.WriteLine("|  __/ '__| | '_ ` _ \\ / _ \\ | . ` | | | | '_ ` _ \\| '_ \\ / _ \\ '__/ __| \\ \\ /\\ / / | __| '_ \\   `--. \\/ _ \\|  __| ");
-            Console.WriteLine("| |  | |  | | | | | | |  __/ | |\\  | |_| | | | | | | |_) |  __/ |  \\__ \\  \\ V  V /| | |_| | | | /\\__/ / (_) | |___ ");
-            Console.WriteLine("\\_|  |_|  |_|_| |_| |_|\\___| \\_| \\_/\\__,_|_| |_| |_|_.__/ \\___|_|  |___/   \\_/\\_/ |_|\\__|_| |_| \\____/ \\___/\\____/  \n\n");
-
-            string filePath = "";
-            int number;
-            bool writeToConsole;
-            while (true) 
-            {
-                Console.WriteLine("Calculate prime numbers up to:");
-                string numberString = Console.ReadLine();
-                if (int.TryParse(numberString, out number) && number >= 2)
-                {
-                    break;
-                }
-                else
-                {
-                    Console.WriteLine("Please enter a valid number larger than 2.");
-                }
-            }
-            Console.WriteLine("It is recommended to not print the numbers to the console when calculating large amounts of numbers(circa from 1'000'000), as the writing to the Console takes a LOT longer then the calculation.\n(You will be asked if you want to write the numbers to a file after the calculation)\n\n");
-
-            while (true)
-            {
-                Console.WriteLine("Would you like to print your numbers to the Console? [y/N]");
-                
-                string answer = Console.ReadLine().ToLower();
-                if (answer == "y")
-                {
-                    writeToConsole = true;
-                    break;
-                }
-                else if (answer == "n")
-                {
-                    writeToConsole = false;
-                    break;
-                }
-                else
-                {
-                    Console.WriteLine("Please enter a valid answer. ('y' for yes or 'n' for no)");
-                }
-
-            }
-            Stopwatch calculationTimer = new Stopwatch();
-            Stopwatch consoleWritingTimer = new Stopwatch();
-
-            List<int> primeNumbers = new List<int>();
-            calculationTimer.Start();
-            primeNumbers = CalculatePrimes(number);
-            calculationTimer.Stop();
-            if (writeToConsole)
-            {
-                Console.WriteLine($"The prime numbers up to {number} are:");
-            }
-            
-            consoleWritingTimer.Start();
-            if (writeToConsole)
-            {
-                foreach (int i in primeNumbers)
-                {
-                    Console.WriteLine(i);
-                }
-            }
-            consoleWritingTimer.Stop();
-            Console.WriteLine($"\n\nCalculation of {primeNumbers.Count()} prime Numbers(up to {number}) took {calculationTimer.Elapsed}.");
-            TimeSpan tspanCalc = calculationTimer.Elapsed;
-            TimeSpan tspanWrite = consoleWritingTimer.Elapsed;
-            if (writeToConsole)
-            {
-                Console.WriteLine($"The Console.WriteLine() of {primeNumbers.Count()} prime Numbers took {consoleWritingTimer.Elapsed}.");
-                Console.WriteLine($"The Writing took {tspanWrite.TotalSeconds / tspanCalc.TotalSeconds} times longer than the calculation\n\n");
-            }
-            
-            bool writeToFile = false;
-            while (true)
-            {
-                Console.WriteLine("Do you want to write the numbers to a file?[y/N]");
-                string answer = Console.ReadLine().ToLower();
-                if (answer == "y")
-                {
-                    writeToFile = true;
-                    break;
-                }
-                else if (answer == "n")
-                {
-                    writeToFile = false;
-                    break;
-                }
-                else
-                {
+                default:
                     Console.WriteLine("Invalid Input");
-                }
+                    return false;
+                    
+
+            }
+            
+
+        }
+        public static bool TestIfWon()
+        {
+            if (field1 == 'X' &&  field2 == 'X' && field3 == 'X') //1 ---
+            {
+                Console.WriteLine("Player X has Won.");
+                return true;
+            }
+            else if (field4 == 'X' && field5 == 'X' && field6 == 'X')//2 ---
+            {
+                Console.WriteLine("Player X has Won.");
+                return true;
+            }
+            else if (field7 == 'X' && field8 == 'X' && field9 == 'X')//3 ---
+            {
+                Console.WriteLine("Player X has Won.");
+                return true;
+            }
+            else if (field1 == 'X' && field4 == 'X' && field7 == 'X')//4 |||
+            {
+                Console.WriteLine("Player X has Won.");
+                return true;
+            }
+            else if (field2 == 'X' && field5 == 'X' && field8 == 'X')//5 |||
+            {
+                Console.WriteLine("Player X has Won.");
+                return true;
+            }
+            else if (field3 == 'X' && field6 == 'X' && field9 == 'X')//6 |||
+            {
+                Console.WriteLine("Player X has Won.");
+                return true;
+            }
+            else if (field7 == 'X' && field5 == 'X' && field3 == 'X')//7 ///
+            {
+                Console.WriteLine("Player X has Won.");
+                return true;
+            }
+            else if (field1 == 'X' && field5 == 'X' && field9 == 'X')//8 \\\
+            {
+                Console.WriteLine("Player X has Won.");
+                return true;
             }
 
-            if (writeToFile)
-            {
-                
-                string primeNumbersString = "";
-                /*
-                foreach (int i in primeNumbers)
-                {
-                    primeNumbersString = primeNumbersString + i + "\n";
-                }
-                */
 
-                while (true)
+            //Check Player O
+
+
+
+            if (field1 == 'O' &&  field2 == 'O' && field3 == 'O') //1 ---
+            {
+                Console.WriteLine("Player O has Won.");
+                return true;
+            }
+            else if (field4 == 'O' && field5 == 'O' && field6 == 'O')//2 ---
+            {
+                Console.WriteLine("Player O has Won.");
+                return true;
+            }
+            else if (field7 == 'O' && field8 == 'O' && field9 == 'O')//3 ---
+            {
+                Console.WriteLine("Player O has Won.");
+                return true;
+            }
+            else if (field1 == 'O' && field4 == 'O' && field7 == 'O')//4 |||
+            {
+                Console.WriteLine("Player O has Won.");
+                return true;
+            }
+            else if (field2 == 'O' && field5 == 'O' && field8 == 'O')//5 |||
+            {
+                Console.WriteLine("Player O has Won.");
+                return true;
+            }
+            else if (field3 == 'O' && field6 == 'O' && field9 == 'O')//6 |||
+            {
+                Console.WriteLine("Player O has Won.");
+                return true;
+            }
+            else if (field7 == 'O' && field5 == 'O' && field3 == 'O')//7 ///
+            {
+                Console.WriteLine("Player O has Won.");
+                return true;
+            }
+            else if (field1 == 'O' && field5 == 'O' && field9 == 'O')//8 \\\
+            {
+                Console.WriteLine("Player O has Won.");
+                return true;
+            }
+
+            if (numberofTurns >= 9) 
+            {
+                Console.WriteLine("It's a draw!");
+                return true;
+            }
+
+
+            return false;
+        }
+        public static void PrintPlayingField()
+        {
+            Console.Clear();
+            Console.WriteLine($"{field1}|{field2}|{field3}");
+            Console.WriteLine($"-----");
+            Console.WriteLine($"{field4}|{field5}|{field6}");
+            Console.WriteLine($"-----");
+            Console.WriteLine($"{field7}|{field8}|{field9}");
+
+        }
+
+        static void Main(string[] args)
+        {
+            Console.Title = "TicTacToe";
+            
+            string fieldNumber;
+            Console.WriteLine("\nTicTacToe\n");
+            PrintPlayingField();
+            while (!TestIfWon())
+            {
+                if (playerTurn == 'X')
                 {
-                    Console.WriteLine("Enter file Path: ");
-                    filePath = Console.ReadLine();
-                    if (filePath != null && filePath != "" && filePath != " ")
+
+                    Console.WriteLine("Enter Field Number: ");
+                    while (true)
                     {
-                        break;
+                        if (TestAndPlaceOnField(Console.ReadLine()))
+                        {
+                            break;
+                        }
                     }
-                }
-                Console.WriteLine("Please wait, generating..."); 
-                if (File.Exists(filePath))
-                {
-                    
-                    for (int i = 0; i < primeNumbers.Count(); i++)
-                    {
-                        System.IO.File.AppendAllText(filePath, Convert.ToString(primeNumbers[i]) + "\n");
-                    }
-                    
+
+                    PrintPlayingField();
+
+
+                    numberofTurns++;
+                    playerTurn = 'O';
                 }
                 else
                 {
-                    Console.WriteLine("The file was not found, Creating...");
-                    for (int i = 0; i < primeNumbers.Count(); i++)
+                    Console.WriteLine("Enter Field Number: ");
+                    while (true)
                     {
-                        System.IO.File.AppendAllText(filePath, Convert.ToString(primeNumbers[i]) + "\n");
+                        if (TestAndPlaceOnField(Console.ReadLine()))
+                        {
+                            break;
+                        }
                     }
+
+
+                    PrintPlayingField();
+                    numberofTurns++;
+                    playerTurn = 'X';
                 }
             }
-            Console.WriteLine("Finished!");
+
+
 
         }
     }
